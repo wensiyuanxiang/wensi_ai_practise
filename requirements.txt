@@ -1,18 +1,21 @@
-# 项目公共依赖
+# LangChain
+langchain-core
+langchain-openai
+langchain-community
+
 # CrewAI
-crewai>=1.10.0
-crewai-tools>=1.10.0
+crewai
+crewai-tools
 
-# LLM 相关
+# 常用：OpenAI 兼容、HTTP、环境变量
 openai>=1.0.0
-langchain>=1.0.0
-langchain-core>=1.0.0
-langchain-openai>=0.1.0
+python-dotenv
+httpx
 
-# 搜索和解析
-requests>=2.31.0
-beautifulsoup4>=4.12.0
-lxml>=5.0.0
+# 可选：向量与 RAG（按课程启用）
+# chromadb
+# faiss-cpu
+# pgvector
 
-# 其他工具
-python-dotenv>=1.0.0
+# 可选：国内模型（按需取消注释）
+# dashscope

@@ -1,96 +1,122 @@
-# wensi_ai_practise
+# LangChain + CrewAI 学习仓库
 
-AI 探索实践项目 - 按主题进行 AI 技术探索与尝试
+按「阶段 + 课程」组织（Phase + L），公共 LLM 与工具放在一级目录，便于按阶段学习 LangChain、RAG、向量数据库、CrewAI、AI 编程工具与大模型基础，并支持后续扩展新课。
 
-## 项目规约
+---
 
-- **统一日志**：使用 `logging`，入口处调用 `shared.logging_config.setup_logging()`，禁止裸 `print` 做业务输出。
-- **公共工具与 LLM**：模型调用与配置使用 `shared/llm`（如 `get_aliyun_llm`、`get_aliyun_llm_env`），工具使用 `shared/tools`。
-- 详细规约见 [docs/architecture/20260313-project-conventions.md](docs/architecture/20260313-project-conventions.md)。
+## 课程简介 / 你将获得
+
+- **面向**：希望系统学习 AI 应用开发、Agent、RAG 与多智能体协作的开发者。
+- **内容**：大模型基础与环境、LangChain（链/Agent/RAG）、向量数据库与 RAG 进阶、CrewAI 多智能体、OpenClaw 与 Claude Code 实战、可观测与生产实践。
+- **结构**：所有课程按阶段平铺（Phase1L1、Phase2L1…），`llm/` 与 `tools/` 为根目录公共依赖，各课复用。
+
+---
+
+## 学习路径（阶段与课程）
+
+| 阶段 | 目录 | 主题 |
+|------|------|------|
+| **Phase1 基础与认知** | Phase1L1_env_and_llm | 环境与 LLM 接入 |
+| | Phase1L2_llm_basics | 大模型基础（Token、Prompt、Function Calling） |
+| | Phase1L3_ai_coding_tools | AI 编程工具（Cursor、Claude Code） |
+| **Phase2 LangChain** | Phase2L1_lcel_chain | LCEL 与链 |
+| | Phase2L2_agent_tools | Agent 与工具 |
+| | Phase2L3_rag_intro | RAG 入门 |
+| **Phase3 向量与 RAG** | Phase3L1_vector_db | 向量数据库 |
+| | Phase3L2_rag_advanced | RAG 进阶与检索策略 |
+| **Phase4 CrewAI** | Phase4L1_agent_task_crew | Agent、Task、Crew |
+| | Phase4L2_tools_mcp | 工具与 MCP |
+| | Phase4L3_knowledge_memory | 知识库与记忆 |
+| **Phase5 实战** | Phase5L1_openclaw | OpenClaw 实战 |
+| | Phase5L2_claude_code | Claude Code / Cursor 实战 |
+| **Phase6 生产与拓展** | Phase6L1_observability_eval | 可观测与评估 |
+| | Phase6L2_langgraph_others | LangGraph 与其他框架 |
+
+更细的技术与框架对照见：[docs/architecture/20260313-ai-dev-phased-learning-landscape.md](docs/architecture/20260313-ai-dev-phased-learning-landscape.md)。
+
+---
 
 ## 项目结构
 
 ```
 wensi_ai_practise/
-├── README.md                    # 项目说明
-├── requirements.txt             # 公共 Python 依赖
-├── .env.example                 # 环境变量模板
-├── .env                         # 环境变量（需创建，不提交 git）
-├── venv/                        # 公共虚拟环境（所有主题共用）
-├── .cursor/rules/               # Cursor 项目规约（统一日志、shared 使用）
-├── docs/                        # 文档目录
-│   ├── architecture/            # 架构与项目规约
-│   ├── retrospective/          # 复盘与总结
-│   └── topics/                  # 各主题深度文档
-├── experiments/                 # 实验代码
-│   ├── 01-crewai-react-agent/  # 主题 1: CrewAI ReAct Agent
-│   ├── 02-prompt-engineering/  # 主题 2: 提示词工程
-│   └── ...                      # 更多主题...
-└── shared/                      # 共享代码
-    ├── logging_config.py        # 统一日志配置
-    ├── tools/                   # 自定义工具（百度搜索等）
-    └── llm/                     # LLM 配置（阿里云百炼等）
+├── README.md
+├── .env.example
+├── .gitignore
+├── requirements.txt
+│
+├── llm/                    # 公共：大模型封装（一级目录）
+├── tools/                  # 公共：通用工具（一级目录）
+├── docs/
+│   └── architecture/       # 架构与学习路径文档
+│
+├── Phase1L1_env_and_llm/
+├── Phase1L2_llm_basics/
+├── Phase1L3_ai_coding_tools/
+├── Phase2L1_lcel_chain/
+├── Phase2L2_agent_tools/
+├── Phase2L3_rag_intro/
+├── Phase3L1_vector_db/
+├── Phase3L2_rag_advanced/
+├── Phase4L1_agent_task_crew/
+├── Phase4L2_tools_mcp/
+├── Phase4L3_knowledge_memory/
+├── Phase5L1_openclaw/
+├── Phase5L2_claude_code/
+├── Phase6L1_observability_eval/
+└── Phase6L2_langgraph_others/
 ```
 
-## 环境设置
-
-### 1. 激活公共虚拟环境
-
-所有实验主题共用同一个虚拟环境：
-
-```bash
-# 从项目根目录激活
-source venv/bin/activate
-```
-
-### 2. 配置 API Key
-
-```bash
-cp .env.example .env
-# 编辑 .env 填入你的 API Key
-```
-
-### 3. 安装新依赖（如需要）
-
-```bash
-source venv/bin/activate
-pip install <package-name>
-pip freeze > requirements.txt
-```
-
-## 探索主题路线图
-
-### 进行中
-- [x] **01-crewai-react-agent** - CrewAI ReAct Agent
-  - CrewAI 基础概念和架构
-  - ReAct 范式实现
-  - 工具调用机制
-
-### 待探索
-- [ ] **02-prompt-engineering** - 提示词工程
-- [ ] **03-rag** - 检索增强生成
-- [ ] **04-multi-agent** - 多 Agent 协作
-- [ ] **05-fine-tuning** - 模型微调
-- [ ] **06-multimodal** - 多模态
-
-## 实验记录模板
-
-每个实验目录包含：
-```
-experiments/0x-topic-name/
-├── README.md          # 本主题说明与总结
-├── notebooks/         # Jupyter notebooks
-├── scripts/           # 可执行脚本
-└── outputs/           # 输出结果（可选）
-```
-
-## 工作流
-
-1. 选择一个主题，创建对应的 `experiments/0x-topic-name/` 目录
-2. 编写实验代码和 notebook
-3. 更新主题内的 README.md，记录学习心得
-4. 定期在 `docs/retrospective/` 写阶段性复盘
+- **llm/**：公共大模型封装，各课从此引用。
+- **tools/**：公共工具（搜索、读写等），各课按需引用。
+- **Phase{N}L{m}_***：第 N 阶段第 m 课，目录内为该课脚本、Notebook 及本课说明。
 
 ---
 
-*Start small, iterate fast.*
+## 快速开始
+
+- **环境**：Python 3.10+，建议使用虚拟环境。
+- **安装**：`pip install -r requirements.txt`（或按项目说明使用 uv/poetry）。
+- **配置**：复制 `.env.example` 为 `.env`，填写 API Key（如 OpenAI、通义等）。
+- **运行示例**：在仓库根目录执行，例如 `cd Phase1L1_env_and_llm && python main.py`（具体以各课 README 为准）。
+
+---
+
+## 各课说明
+
+| 课 | 学习目标 | 运行方式（示例） |
+|----|----------|------------------|
+| Phase1L1 | 完成环境与 LLM 首次调用 | 见课内 README |
+| Phase1L2 | 理解 Token、Prompt、Function Calling | 见课内 README |
+| Phase1L3 | 使用 Cursor/Claude Code 与规则、Skills | 见课内 README |
+| Phase2L1 | 掌握 LCEL 与链式调用 | 见课内 README |
+| Phase2L2 | 单 Agent + Tools、ReAct | 见课内 README |
+| Phase2L3 | 文档加载、切分、向量化、简单 RAG 链 | 见课内 README |
+| Phase3L1 | 使用一种向量库（Chroma/FAISS/pgvector） | 见课内 README |
+| Phase3L2 | 检索策略、RAG 评估与调优 | 见课内 README |
+| Phase4L1 | CrewAI Agent/Task/Crew 编排 | 见课内 README |
+| Phase4L2 | 自定义工具与 MCP 集成 | 见课内 README |
+| Phase4L3 | 知识库与记忆（Short/Long-term） | 见课内 README |
+| Phase5L1 | OpenClaw 多 Agent 助手实战 | 见课内 README |
+| Phase5L2 | Cursor Agent / Claude Code 做小项目 | 见课内 README |
+| Phase6L1 | 可观测、Trace、Eval | 见课内 README |
+| Phase6L2 | LangGraph、LlamaIndex 等对比与选型 | 见课内 README |
+
+每课目录下可包含 `README.md` 与入口脚本（如 `main.py`），以课内说明为准。
+
+---
+
+## 常见问题
+
+- **依赖安装失败**：确认 Python 版本与 `requirements.txt`，必要时使用虚拟环境。
+- **API Key 未配置**：检查 `.env` 或环境变量，变量名参考 `.env.example`。
+- **找不到 `llm` / `tools` 模块**：在仓库根目录执行脚本，或使用 `pip install -e .` 将当前仓库安装为可编辑包后再运行。
+
+---
+
+## 参考资源
+
+- [LangChain 文档](https://python.langchain.com/)
+- [CrewAI 文档](https://docs.crewai.com/)
+- [LangChain RAG 教程](https://python.langchain.com/docs/tutorials/rag/)
+- [kid0317/crewai_mas_demo](https://github.com/kid0317/crewai_mas_demo)（企业级多智能体设计实战配套仓库）
