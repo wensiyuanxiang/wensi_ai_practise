@@ -1,14 +1,14 @@
-# LangChain + CrewAI 学习仓库
+# AI 开发学习路径
 
-按「阶段 + 课程」组织（Phase + L），公共 LLM 与工具放在一级目录，便于按阶段学习 LangChain、RAG、向量数据库、CrewAI、AI 编程工具与大模型基础，并支持后续扩展新课。
+这是一条**结构化 AI 应用开发学习路径**：从大模型基础与环境起步，经 LangChain（链 / Agent / RAG）、向量数据库与 RAG 进阶，到 CrewAI 多智能体与实战，再到可观测与生产实践。按「阶段 + 课程」（Phase + L）组织，公共 LLM 与工具放在一级目录（`llm/`、`tools/`），各阶段课程复用，便于按顺序学习与后续扩展。
 
 ---
 
-## 课程简介 / 你将获得
+## 学习路径说明
 
-- **面向**：希望系统学习 AI 应用开发、Agent、RAG 与多智能体协作的开发者。
-- **内容**：大模型基础与环境、LangChain（链/Agent/RAG）、向量数据库与 RAG 进阶、CrewAI 多智能体、OpenClaw 与 Claude Code 实战、可观测与生产实践。
-- **结构**：所有课程按阶段平铺（Phase1L1、Phase2L1…），`llm/` 与 `tools/` 为根目录公共依赖，各课复用。
+- **面向**：希望系统掌握 AI 应用开发、Agent、RAG 与多智能体协作的开发者。
+- **覆盖**：大模型基础与环境、LangChain（链 / Agent / RAG）、向量数据库与 RAG 进阶、CrewAI 多智能体、OpenClaw 与 Claude Code 实战、可观测与生产实践。
+- **结构**：阶段内课程平铺（Phase1L1、Phase2L1…），根目录 `llm/`、`tools/` 为公共依赖，各课直接引用。
 
 ---
 
@@ -116,7 +116,18 @@ wensi_ai_practise/
 
 ## 参考资源
 
+### 官方仓库
+
+- [LangChain](https://github.com/langchain-ai/langchain)（LangChain 主仓库）
+- [LangGraph](https://github.com/langchain-ai/langgraph)（LangChain 图/工作流）
+- [CrewAI](https://github.com/crewAIInc/crewAI)（CrewAI 多智能体编排框架）
+
+### 文档与教程
+
 - [LangChain 文档](https://python.langchain.com/)
 - [CrewAI 文档](https://docs.crewai.com/)
 - [LangChain RAG 教程](https://python.langchain.com/docs/tutorials/rag/)
+
+### 社区与示例
+
 - [kid0317/crewai_mas_demo](https://github.com/kid0317/crewai_mas_demo)（企业级多智能体设计实战配套仓库）

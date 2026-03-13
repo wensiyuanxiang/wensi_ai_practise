@@ -29,6 +29,22 @@
 | **Semantic Kernel（微软）** | 插件与编排 | 企业场景、插件化技能 |
 | **Pydantic AI / OpenAI Agents SDK** | 轻量 Agent、结构化 I/O | 快速单 Agent、类型安全 |
 
+#### 其他主流框架与工具（未单独设阶段，可按需扩展）
+
+| 框架/技术 | 定位 | 说明 |
+|-----------|------|------|
+| **Haystack (deepset)** | RAG / 文档问答流水线 | 组件化 pipeline、与 LangChain/LlamaIndex 并列的 RAG 方案，企业文档场景常见 |
+| **DSPy** | 语言模型编程框架 | 声明式模块、自动优化 prompt/检索，偏研究与高可控流水线 |
+| **OpenAI Assistants API** | 官方 Agent 接口 | Thread、Run、Tool 托管在 OpenAI，适合快速接入、少自建编排 |
+| **Instructor** | 结构化输出 | 用 Pydantic 约束 LLM 输出，轻量、可与任意链/Agent 组合 |
+| **Vercel AI SDK** | 前端 AI 应用 | 流式 UI、多模型统一接口，与 Next.js 等搭配做对话/Agent 界面 |
+| **Dify / Coze / Flowise** | 低代码 Agent 平台 | 可视化编排 Agent/工作流，快速上线；偏产品与运营 |
+| **n8n** | 工作流自动化（自托管） | 节点式编排 API、Webhook、DB、LLM 等，可接 OpenAI 等节点做 AI 工作流；与 Zapier 同类但可自建 |
+| **Unstructured** | 文档解析 | PDF/HTML 等转结构化文本，RAG 前置环节常用 |
+| **MetaGPT / Camel / AgentVerse** | 多 Agent 研究/开源 | 学术与社区项目，可与现有框架对比学习多 Agent 设计 |
+
+当前学习路径以 **LangChain + CrewAI** 为主线；上表所列可在 Phase6「拓展」或后续阶段中按需加入对比与选型。
+
 ### 3. RAG 与检索
 
 | 类别 | 内容 | 说明 |
