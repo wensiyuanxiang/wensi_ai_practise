@@ -2,15 +2,21 @@
 langchain-core
 langchain-openai
 langchain-community
+langgraph
 
 # CrewAI
 crewai
 crewai-tools
 
+# LlamaIndex
+llama-index-core
+llama-index-llms-openai-like
+
 # 常用：OpenAI 兼容、HTTP、环境变量
 openai>=1.0.0
 python-dotenv
 httpx
+requests
 
 # 可选：向量与 RAG（按课程启用）
 # chromadb
@@ -19,3 +25,7 @@ httpx
 
 # 可选：国内模型（按需取消注释）
 # dashscope
+
+# 测试（开发/CI）
+pytest
+pytest-asyncio
